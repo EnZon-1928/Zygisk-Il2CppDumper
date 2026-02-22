@@ -21,6 +21,10 @@ jobs:
         java-version: '17'
         cache: 'gradle'
 
+    - name: Hack Target Library Name
+      run: |
+        find module/src/main/cpp -type f -exec sed -i 's/libil2cpp\.so/liblogic\.so/g' {} +
+
     - name: Build Module
       run: |
         chmod +x ./gradlew
